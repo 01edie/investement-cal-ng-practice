@@ -1,0 +1,24 @@
+@if(investmentService.annualData.length>0){
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Investment (Year)</th>
+      <th>Total Interest</th>
+      <th>Investment Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(yearlyData of investmentService.annualData; track yearlyData.year){
+    <tr>
+      <td>{{ yearlyData.year }}</td>
+      <td>{{ yearlyData.valueEndOfYear }}</td>
+      <td>{{ yearlyData.interest }}</td>
+      <td>{{ yearlyData.totalInterest }}</td>
+      <td>{{ yearlyData.totalAmountInvested }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
