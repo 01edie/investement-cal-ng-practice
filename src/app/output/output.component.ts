@@ -1,15 +1,17 @@
-import { Component, inject } from '@angular/core';
-import { InvestmentService } from '../investement.service';
+import { Component, input } from '@angular/core';
+import { InvestmentResult } from '../user-input/user-input.model';
+
 
 @Component({
   selector: 'app-output',
-  standalone: true,
-  imports: [],
+  // standalone: true,
+  // imports: [CurrencyPipe],
   templateUrl: './output.component.html',
   styleUrl: './output.component.css',
 })
 export class OutputComponent {
-  investmentService = inject(InvestmentService);
+  investmentResult = input<InvestmentResult[]>();
+  // investmentService = inject(InvestmentService);
   // annualData = this.investmentService.annualData;
   // constructor(){
   //   console.log(this.annualData.length)

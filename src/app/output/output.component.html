@@ -1,4 +1,4 @@
-@if(investmentService.annualData.length>0){
+@if(investmentResult()?.length){
 <table>
   <thead>
     <tr>
@@ -10,15 +10,18 @@
     </tr>
   </thead>
   <tbody>
-    @for(yearlyData of investmentService.annualData; track yearlyData.year){
+    @for(yearlyData of investmentResult(); track yearlyData.year){
     <tr>
       <td>{{ yearlyData.year }}</td>
-      <td>{{ yearlyData.valueEndOfYear }}</td>
-      <td>{{ yearlyData.interest }}</td>
-      <td>{{ yearlyData.totalInterest }}</td>
-      <td>{{ yearlyData.totalAmountInvested }}</td>
+      <td>{{ yearlyData.valueEndOfYear | currency }}</td>
+      <td>{{ yearlyData.interest | currency }}</td>
+      <td>{{ yearlyData.totalInterest | currency }}</td>
+      <td>{{ yearlyData.totalAmountInvested | currency }}</td>
     </tr>
     }
   </tbody>
 </table>
+}@else {
+<p class="center">Please enter your data and press 'Calculate'</p>
+
 }
